@@ -1,0 +1,1 @@
+//apply is very similar to call() except that takes an array of args rather than explicitly stated like in call()
