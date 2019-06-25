@@ -16,6 +16,6 @@ obj.speak() // => "hi"
 var talkFunction = obj.speak
 talkFunction(); // => undefined - we've lost our `this` binding
 
-talkFunction.bind(obj); //undefined
+talkFunction.bind(obj)(); //undefined
 var boundTalkFunction = talkFunction.bind(obj);
 boundTalkFunction() // => "hi"
