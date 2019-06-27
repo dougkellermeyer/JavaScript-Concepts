@@ -1,0 +1,1 @@
+//constructors are a special type of function that allows us to use the `new` keyword to create multiple objects with the same properties and methods
