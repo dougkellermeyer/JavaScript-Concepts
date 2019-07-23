@@ -27,7 +27,7 @@ function Customer(firstName, lastName, phone, membership){
     this.membership = membership;
 }
 
-const customer1 = new Customer('Bill', 'Smith', '555-555-5555', 'Standard')
+const customer1 = new Customer('John', 'Smith', '555-555-5555', 'Standard')
 console.log(customer1)
 
 //Customer greeting
