@@ -19,7 +19,7 @@ var someoneElse = {
     age: 30
 }
 
-identify.call(me) // => "Doug"
+identify.call(me) // => "Doug", 26
 identify.call(someoneElse) // => "John"
 
 

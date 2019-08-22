@@ -3,7 +3,7 @@
 //format is function.apply(thisArg, [args])
 
 function applyMe(...args){
-    console.log(...args) //
+    console.log(...args) // 1 2 3 4
     console.log(this.a) // 4
   }
   
