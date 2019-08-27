@@ -12,16 +12,44 @@ I don't mean that I intend to completely understand everything about JavaScript;
 
 ## So let's get into it: the Event Loop
 The JavaScript **event loop** is an abstract concept that take's some basic definitions to really break down. 
-- **Javascript runtime** - where you JavaScript code is excecuted when you run it. There are a lot of examples such as (v8, Node, spidermonkey etc.) which we'll get into later.
-  - The runtime consists of: the **heap** and the **callstack** or  **stack**.
-    - I know, I know, more definitions...that's how it goes...
-
+- **Javascript runtime** - where your JavaScript code is excecuted. There are a lot of examples such as (v8, Node, spidermonkey etc.) which we'll get into later.
+  - The **runtime** consists of: the **heap** and the **call stack** or stack.
     - A **heap** is a simply where **memory allocation** happens
-    - A **callstack** where your stack frames are (what's being executed)
-  - Back to some of those runtime examples, you've probably heard **v8** or the **v8 engine** thrown around and wondered what that is - I know I did.
-  - **v8** or the **v8 engine** is Google Chrome's **JavaScript runtime**. In other words `engine === runtime` 
+
+    - A **call stack** is where your actions (function, logs, events,etc.) qued (what's being executed)
+  - Back to some of those **runtime examples**. You've probably heard **v8** or the **v8 engine** thrown around and wondered what that is - I know I did.
+
+    - **v8** or the **v8 engine** is Google Chrome's **JavaScript runtime**. You'll often here **engine** and **runtime** used interchangably (`engine === runtime`) 
 
 - So now that we have a few definitions down, we can get into the different pieces that make up the event loop.
+
+### **The Call Stack**
+- Since JavaScript is a **single-threaded** language, that means it can only do **one thing at a time**
+- This also means that it has **only ONE call stack**
+  - Ex. When you call a function, it pops onto the stack, when something is `returned` or the function is complete, that function popped off the stack
+  - Ex. (cont.) if you've ever returned a function with another function or looped through something incorrectly, you'll get a `RangeError: Maximum call stack size exceeded` in your browser console. 
+
+- The **call stack** can be **"blocked"** or what is know as **"blocking"**, when things are slow. 
+  - Ex. If you were to make numerous synchronous (one at a time) AJAX requests, they would one-by-one be added to the **call stack** and remain on the call stack until each is completed.
+    - Assuming we're making these AJAX requests in the browser, the page is **rendered unresponsive** until those requests are cleared off the stack. The page will still register click events, keydowns, etc., however they **won't get executed** until the AJAX requests are completed.
+    - What's the best way to get around this **blocking the call stack** issue are **asynchronous callbacks** (a callback function we can run later, such as a callback function in the `setTimeout` snippet below).
+
+        ```javascript
+        console.log('hi');
+
+        setTimeout(function(){
+            console.log('there');
+        }, 2000);
+
+        console.log('dude');
+        ```
+    - In the above example, we would get `hi`, then `dude`, and finally `there`. What's significant is that after the `setTimeout` function executes, it's no longer on the **call stack**, however **we still get the `console.log(there)`** in the console.
+    - HOLD UP, how is this possible?
+    - This is where we put our big girl pants on and look at the **magic of the event loop**.
+
+## Concurrency and the Event Loop
+- So, although JavaScript is single-threaded and it's runtime can only do one thing at a time, **the browser gives us the power to do more**.
+- The browser gives us some APIs (DOM, AJAX, setTimeout) that we can use to do things in concurrency (at the same).
 
 
 
