@@ -16,7 +16,7 @@ The JavaScript **event loop** is an abstract concept that take's some basic defi
   - The **runtime** consists of: the **heap** and the **call stack** or stack.
     - A **heap** is a simply where **memory allocation** happens
 
-    - A **call stack** is where your actions (function, logs, events,etc.) qued (what's being executed)
+    - A **call stack** is where your actions (function, logs, events,etc.) queued (what's being executed)
   - Back to some of those **runtime examples**. You've probably heard **v8** or the **v8 engine** thrown around and wondered what that is - I know I did.
 
     - **v8** or the **v8 engine** is Google Chrome's **JavaScript runtime**. You'll often here **engine** and **runtime** used interchangably (`engine === runtime`) 
@@ -37,7 +37,7 @@ The JavaScript **event loop** is an abstract concept that take's some basic defi
         ```javascript
         console.log('hi');
 
-        setTimeout(function(){
+        setTimeout(function cb(){
             console.log('there');
         }, 2000);
 
@@ -49,8 +49,39 @@ The JavaScript **event loop** is an abstract concept that take's some basic defi
 
 ## Concurrency and the Event Loop
 - So, although JavaScript is single-threaded and it's runtime can only do one thing at a time, **the browser gives us the power to do more**.
-- The browser gives us some APIs (DOM, AJAX, setTimeout) that we can use to do things in concurrency (at the same).
 
+- The browser gives us some WebAPIs (DOM, AJAX, setTimeout) that we can use to do things in concurrency (at the same). You can also think of these WebAPIs as threads, while we can't access them in the runtime, we can ask them to do things for us.
+
+- Going back to the `setTimeout` example, once the `setTimeout` is executed, the delay of 2 seconds gets sent to the webAPI to run for 2 seconds and **is popped off the call stack**.
+     ```javascript
+        console.log('hi');
+
+        setTimeout(function cb(){
+            console.log('there');
+        }, 2000);
+
+        console.log('dude');
+    ```
+- Once the timer has run for 2 seconds, he callback function `cb()` is sent from the WebAPI to the **task queue**.
+  - The task queue is a queue for the call stack.
+  - Now, how does it go from the task queue to the call stack?? 
+
+  ### This is where the **event loop** comes in! 
+  - The event loop kicks a task(s) from the **task queue** to the **call stack**.
+  - It's important to note that this **only happens once the call stack is clear**.
+
+  - Keeping that thought in mind, we can use `setTimeout` with ZERO delay to kick that callback to the **webAPI** and then immediately over to the **task queue**
+  ```javascript
+  console.log('hi');
+
+  setTimeout(function cb(){
+      console.log('there');
+  }, 0);
+
+  console.log('dude);
+
+  ```
+  - Essentially what we're doing here is deferring the execution of the callback until the **call stack** is clear.
 
 
 
