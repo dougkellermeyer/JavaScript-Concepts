@@ -17,6 +17,7 @@ The JavaScript **event loop** is an abstract concept that take's some basic defi
     - A **heap** is a simply where **memory allocation** happens
 
     - A **call stack** is where your actions (function, logs, events,etc.) queued (what's being executed)
+      - In other words - it's a data structure that records where in the program/app we are.
   - Back to some of those **runtime examples**. You've probably heard **v8** or the **v8 engine** thrown around and wondered what that is - I know I did.
 
     - **v8** or the **v8 engine** is Google Chrome's **JavaScript runtime**. You'll often here **engine** and **runtime** used interchangably (`engine === runtime`) 
@@ -30,8 +31,8 @@ The JavaScript **event loop** is an abstract concept that take's some basic defi
   - Ex. (cont.) if you've ever returned a function with another function or looped through something incorrectly, you'll get a `RangeError: Maximum call stack size exceeded` in your browser console. 
 
 - The **call stack** can be **"blocked"** or what is know as **"blocking"**, when things are slow. 
-  - Ex. If you were to make numerous synchronous (one at a time) AJAX requests, they would one-by-one be added to the **call stack** and remain on the call stack until each is completed.
-    - Assuming we're making these AJAX requests in the browser, the page is **rendered unresponsive** until those requests are cleared off the stack. The page will still register click events, keydowns, etc., however they **won't get executed** until the AJAX requests are completed.
+  - Ex. If you were to make numerous synchronous (one at a time) requests, they would one-by-one be added to the **call stack** and remain on the call stack until each is completed.
+    - Assuming we're making these requests in the browser, the page is **rendered unresponsive** until those requests are cleared off the stack. The page will still register click events, keydowns, etc., however they **won't get executed** until the requests are completed.
     - What's the best way to get around this **blocking the call stack** issue are **asynchronous callbacks** (a callback function we can run later, such as a callback function in the `setTimeout` snippet below).
 
         ```javascript
@@ -82,6 +83,24 @@ The JavaScript **event loop** is an abstract concept that take's some basic defi
 
   ```
   - Essentially what we're doing here is deferring the execution of the callback until the **call stack** is clear.
+
+
+This idea of defering execution is how AJAX and other network calls work. 
+- Once the request is made, the XHR webAPI takes over, once it completes (if it completes,) and it gets sent to the **task queue**, which is then picked up by the **event loop** and thrown onto the **call stack** once it's clear.
+    ```javascript
+    console.log('hi');
+
+    $.get('url', function cb(data){
+        console.log(data);
+    });
+    console.log('there');
+    ```
+
+### The importance of concurrency/being able to do things asychronously in the browser can **NOT** be understated.
+- If you don't use asynchronous callbacks, you run the risk of **blocking the call stack**, which prevents the browser from refreshing or **"repainting"** the screen.
+
+
+
 
 
 
