@@ -14,8 +14,8 @@ const a = [1, 2, 3, 4, 5];
 // };  
 
 //second attempt
-const multiply = (arr) => arr.map((i) => i*i);
+const multiplyArray = (arr) => arr.map((i) => i*i);
 
-const aSquared = a.concat(multiply(a));
+const arrSquared = a.concat(multiplyArray(a));
 
-console.log(aSquared);
+console.log(arrSquared);

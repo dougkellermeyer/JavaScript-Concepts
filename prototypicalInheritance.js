@@ -9,6 +9,10 @@ Person.prototype.greeting = function(){
     return `hi there ${this.firstName} ${this.lastName}`
 }
 
+Person.prototype.greeting2 = function(){
+    return `sup there hoss`
+};
+
 const person1 = new Person('Doug','Kellermeyer');
 
 console.log(person1.greeting());
@@ -16,7 +20,7 @@ console.log(person1.greeting());
 //Inherit the Person prototype methods
 Customer.prototype = Object.create(Person.prototype);
 
-//Make customer.prototype return Customer
+//Make Customer.prototype return Customer
 Customer.prototype.constructor = Customer;
 
 //Create a customer
@@ -32,7 +36,7 @@ console.log(customer1)
 
 //Customer greeting
 Customer.prototype.greeting = function(){
-    return `hi there ${this.firstName} ${this.lastName} welcome to our company`
+    return `hi there ${this.firstName} ${this.lastName}, welcome to our company`
 }
 
 //can overwrite the greeting

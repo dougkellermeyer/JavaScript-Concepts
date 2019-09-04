@@ -1,23 +1,23 @@
 document.getElementById('button').addEventListener('click', loadData);
 
 function loadData(){
-    //Create XHR object
-    const xhr = new XMLHttpRequest();
+    //Create req object
+    const req = new XMLHttpRequest();
     
     //OPEN - specify the type of request we want to make 
 
     //Optional - used for spinners/loaders
-    xhr.onprogress = function(){
-        console.log('READYSTATE', xhr.readyState); //READYSTATE 3 - processing request
+    req.onprogress = function(){
+        console.log('READYSTATE', req.readyState); //READYSTATE 3 - processing request
     };
 
-    xhr.open('GET', 'data.txt', true);
+    req.open('GET', 'data.txt', true);
 
     //can see the ready state
-    // console.log('READYSTATE', xhr.readyState);
+    // console.log('READYSTATE', req.readyState);
 
-    xhr.onload = function(){
-        console.log('READYSTATE', xhr.readyState);
+    req.onload = function(){
+        console.log('READYSTATE', req.readyState);
 
         if(this.status === 200){
            document.getElementById('output').innerHTML = 
@@ -25,11 +25,11 @@ function loadData(){
         }
     };
 
-    xhr.onerror = function(){
+    req.onerror = function(){
         console.log('Request erorr...')
     };
 
-    xhr.send();
+    req.send();
 
     //HTTP Statusees
     //200: OK
