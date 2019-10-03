@@ -1,4 +1,5 @@
 function loadData(){
+    console.log()
     var xhr = new XMLHttpRequest();
 
     xhr.open('GET', 'gameData.json', true);

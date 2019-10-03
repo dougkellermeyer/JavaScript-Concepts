@@ -12,14 +12,14 @@
             <button id="getDataButton" onclick="loadData()">Get Data</button>
             <div id="outputData"></div>
             <div class="dropdown">
-            <select name="division" id="division"> 
+            <select name="division" id="division" onclick="loadData($event)"> 
                 <option value="" disabled selected>Division</option>
             </select>
             </div>
 
             <div class="dropdown">
                 <select name="conference" id="conference"> 
-                    <option value="" disabled selected>Conference</option>
+                    <option value="" onclick="" disabled selected>Conference</option>
                 </select>
             </div>
 
