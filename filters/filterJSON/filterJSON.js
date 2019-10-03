@@ -7,7 +7,6 @@ function loadData(){
       
         if(this.status === 200){
             let res = JSON.parse(this.responseText);
-
             //put data on the page
             // document.getElementById('outputData').innerHTML = 
             //loop or map filterRes to output filterBy result
@@ -47,7 +46,7 @@ function loadData(){
 //invoke our function so the data is available 
 // loadData()
 
-//create an IIFE to grab the divison select options
+//create an IIFE to grab the divison, conference, and team select options
 (function(){
     var divisionsArr = ["AFC East", "AFC West", "AFC North", "AFC South", "NFC East", "NFC West", "NFC North", "NFC South"];
     var division = document.getElementById("division"),
