@@ -1,0 +1,178 @@
+[
+    {
+        "id": 0,
+        "homeTeam": "Carolina Panthers",
+        "homeTeamDivision":"NFC South",
+        "awayTeam": "Tampa Bay Buccaneers",
+        "awayTeamDivision": "NFC South",
+        "location": "Charlotte, North Carolina",
+        "date": "Thursday, 9/12",
+        "time": "8:20 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 1,
+        "homeTeam": "Baltimore Ravens",
+        "homeTeamDivision":"AFC North",
+        "awayTeam": "Arizona Cardinals",
+        "awayTeamDivision":"NFC West",
+        "location": "Baltimore, Maryland",
+        "date": "Sunday, 9/15",
+        "time": "1:00 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 2,
+        "homeTeam": "Detroit Lions",
+        "homeTeamDivision":"NFC West",
+        "awayTeam": "Los Angeles Chargers",
+        "awayTeamDivision":"AFC West",
+        "location": "Detroit, Michigan",
+        "date": "Sunday, 9/15",
+        "time": "1:00 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 3,
+        "homeTeam": "Tennessee Titans",
+        "homeTeamDivision":"NFC West",
+        "awayTeam": "Indianapolis Colts",
+        "awayTeamDivision":"AFC South",
+        "location": "Nashville, Tennessee",
+        "date": "Sunday, 9/15",
+        "time": "1:00 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 4,
+        "homeTeam": "New York Giants",
+        "homeTeamDivision":"NFC East",
+        "awayTeam": "Buffalo Bills",
+        "awayTeamDivision":"AFC East",
+        "location": "East Rutherford, New Jersey",
+        "date": "Sunday, 9/15",
+        "time": "1:00 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 5,
+        "homeTeam": "Miami Dolphins",
+        "homeTeamDivision":"AFC East",
+        "awayTeam": "New England Patriots",
+        "awayTeamDivision":"AFC East",
+        "location": "Miami, Florida",
+        "date": "Sunday, 9/15",
+        "time": "1:00 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 6,
+        "homeTeam": "Washington Redskins",
+        "homeTeamDivision":"NFC East",
+        "awayTeam": "Dallas Cowboys",
+        "awayTeamDivision":"NFC East",
+        "location": "District of Columbia, D.C.",
+        "date": "Sunday, 9/15",
+        "time": "1:00 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 7,
+        "homeTeam": "Houston Texans",
+        "homeTeamDivision":"AFC South",
+        "awayTeam": "Jacksonville Jaguars",
+        "awayTeamDivision":"AFC South",
+        "location": "Houston, TX",
+        "date": "Sunday, 9/15",
+        "time": "1:00 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 8,
+        "homeTeam": "Pittsburgh Steelers",
+        "homeTeamDivision":"AFC North",
+        "awayTeam": "Seattle Seahawks",
+        "awayTeamDivision":"NFC West",
+        "location": "Pittsburgh, PA",
+        "date": "Sunday, 9/15",
+        "time": "1:00 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 9,
+        "homeTeam": "Cincinnati Bengals",
+        "homeTeamDivision":"AFC North",
+        "awayTeam": "San Francisco 49ers",
+        "awayTeamDivision":"NFC West",
+        "location": "Cincinnati, OH",
+        "date": "Sunday, 9/15",
+        "time": "1:00 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 10,
+        "homeTeam": "Green Bay Packers",
+        "homeTeamDivision":"NFC North",
+        "awayTeam": "Minnesota Vikings",
+        "awayTeamDivision":"NFC North",
+        "location": "Green Bay, Wisconsin",
+        "date": "Sunday, 9/15",
+        "time": "1:00 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 11,
+        "homeTeam": "Oakland Raiders",
+        "homeTeamDivision":"AFC West",
+        "awayTeam": "Kansas City Chiefs",
+        "awayTeamDivision":"AFC West",
+        "location": "Oakland, California",
+        "date": "Sunday, 9/15",
+        "time": "4:05 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 12,
+        "homeTeam": "Los Angeles Rams",
+        "homeTeamDivision":"NFC West",
+        "awayTeam": "New Orleans Saints",
+        "awayTeamDivision":"NFC South",
+        "location": "Los Angeles, California",
+        "date": "Sunday, 9/15",
+        "time": "4:25 PM EST",
+        "weather": "TBD"
+    },
+    {  
+        "id": 13,
+        "homeTeam": "Denver Broncos",
+        "homeTeamDivision":"AFC West",
+        "awayTeam": "Chicago Bears",
+        "awayTeamDivision":"NFC North",
+        "location": "Denver, Colorado",
+        "date": "Sunday, 9/15",
+        "time": "4:25 PM EST",
+        "weather": "TBD"
+    },
+    {  
+        "id": 14,
+        "homeTeam": "Atlanta Falcons",
+        "homeTeamDivision":"NFC South",
+        "awayTeam": "Philadelphia Eagles",
+        "awayTeamDivision":"NFC East",
+        "location": "Atlanta, Georgia",
+        "date": "Sunday, 9/15",
+        "time": "8:20 PM EST",
+        "weather": "TBD"
+    },
+    {
+        "id": 15,
+        "homeTeam": "New York Jets",
+        "homeTeamDivision": "AFC East",
+        "awayTeam": "Cleveland Browns",
+        "awayTeamDivision": "AFC North",
+        "location": "East Rutherford, New Jersey",
+        "date": "Monday, 9/16",
+        "time": "8:15 PM EST",
+        "weather": "TBD"
+    }
+  ]
