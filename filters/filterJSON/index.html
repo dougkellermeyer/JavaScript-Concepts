@@ -9,8 +9,16 @@
 <body>
     <h1>Let's filter some JSON shall we?</h1>
     <div class="container">
-            <button id="getDataButton">Get Data</button>
+            <button id="getDataButton" onclick="loadData()">Get Data</button>
             <div id="outputData"></div>
+            <div class="dropdown">
+            <select name="division" id="division"> 
+                <option value="" disabled selected>Division</option>
+                <option value="">Division1</option>
+                <option value="">Division2</option>
+                <option value="">Division3</option>
+            </select>
+            </div>
     </div>
     
 <script src="filterJSON.js"></script>
