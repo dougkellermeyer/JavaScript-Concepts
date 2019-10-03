@@ -55,7 +55,7 @@ function loadData(){
 
     //loop through the divisions
     //TODO replace the hardcoded 7 with lenght of the division array
-    for (let i = 0; i <= divisionsArr.length; i++){
+    for (let i = 0; i < divisionsArr.length; i++){
         var divisionOption = document.createElement('option');
         divisionOption.value = i;
         divisionOption.appendChild(document.createTextNode(divisionsArr[i]));
