@@ -54,7 +54,6 @@ function loadData(){
     df = document.createDocumentFragment();
 
     //loop through the divisions
-    //TODO replace the hardcoded 7 with lenght of the division array
     for (let i = 0; i < divisionsArr.length; i++){
         var divisionOption = document.createElement('option');
         divisionOption.value = i;
@@ -62,5 +61,35 @@ function loadData(){
         df.appendChild(divisionOption);
     }
     division.appendChild(df);
-}())
+}());
+
+(function(){
+    var conferenceArr = ["AFC", "NFC"];
+    var conference = document.getElementById("conference"),
+    df = document.createDocumentFragment();
+
+    //loop through the divisions
+    for (let i = 0; i < conferenceArr.length; i++){
+        var conferenceOption = document.createElement('option');
+        conferenceOption.value = i;
+        conferenceOption.appendChild(document.createTextNode(conferenceArr[i]));
+        df.appendChild(conferenceOption);
+    }
+    conference.appendChild(df);
+}());
+
+(function(){
+    var teamsArr = ["Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills", "Carolina Panthers", "Chicago Bears", "Cincinnati Bengals", "Cleveland Browns", "Dallas Cowboys", "Denver Broncos", "Detroit Lions", "Green Bay Packers", "Houston Texans", "Indianapolis Colts", "Jacksonville Jaguars", "Kansas City Chiefs", "Los Angeles Rams", "Miami Dolphins", "Minnesota Vikings", "New England Patriots", "New Orleans Saints", "New York Giants", "New York Jets", "Oakland Raiders", "Philadelphia Eagles", "Pittsburgh Steelers", "San Diego Chargers", "San Francisco 49ers", "Seattle Seahawks", "Tampa Bay Buccaneers", "Tennessee Titans", "Washington Redskins"];
+    var team = document.getElementById("team"),
+    df = document.createDocumentFragment();
+
+    //loop through the divisions
+    for (let i = 0; i < teamsArr.length; i++){
+        var teamOption = document.createElement('option');
+        teamOption.value = i;
+        teamOption.appendChild(document.createTextNode(teamsArr[i]));
+        df.appendChild(teamOption);
+    }
+    team.appendChild(df);
+}());
 
