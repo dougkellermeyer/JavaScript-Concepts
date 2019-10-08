@@ -1,47 +1,52 @@
-function loadData(element){
+function loadData(elementValue){
     //put condition if element exists, filter, if not return back all the games
-    // var filterSelection = element.options[element.selectedIndex].text
-    console.log(element)
-    var xhr = new XMLHttpRequest();
+    console.log(elementValue)
+    if(elementValue){
+        console.log("theres a value")
+        var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', 'gameData.json', true);
+        xhr.open('GET', 'gameData.json', true);
 
-    xhr.onload = function(){
-      
-        if(this.status === 200){
-            let res = JSON.parse(this.responseText);
-            //put data on the page
-            // document.getElementById('outputData').innerHTML = 
-            //loop or map filterRes to output filterBy result
-            // `<p>${this.responseText}</p>`;
-
-            //just put the filter logic here and return all the games if there 
-            //isn't a filter param
-
-            //filterBy function would go here
-            function filterBy(response, filterParam){
-                this.response = response;
-                console.log(response)
-                //use filterParam from dropdown
-            };
-
-            filterBy(res);
-
-            // let filteredRes = res.filter(function(game){
-            //     return game.homeTeam ===;
-            // });
-            // console.log(filteredRes)
-        };
+        xhr.onload = function(){
         
-    };
+            if(this.status === 200){
+                let res = JSON.parse(this.responseText);
+                //put data on the page
+                // document.getElementById('outputData').innerHTML = 
+                //loop or map filterRes to output filterBy result
+                // `<p>${this.responseText}</p>`;
 
-    xhr.onerror = function(){
-        console.log('An error occurred on the request')
-    };
+                //just put the filter logic here and return all the games if there 
+                //isn't a filter param
 
-    xhr.send();
+                //filterBy function would go here
+                function filterBy(response, filterParam){
+                    this.response = response;
+                    console.log(response)
+                    //use filterParam from dropdown
+                };
 
-    // return res
+                filterBy(res);
+
+                // let filteredRes = res.filter(function(game){
+                //     return game.homeTeam ===;
+                // });
+                // console.log(filteredRes)
+            };
+            
+        };
+
+        xhr.onerror = function(){
+            console.log('An error occurred on the request')
+        };
+
+        xhr.send();
+
+        // return res
+    } else{
+        
+    }
+    
 };
 
 
