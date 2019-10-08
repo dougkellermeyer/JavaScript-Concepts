@@ -1,5 +1,7 @@
-function loadData(){
-    console.log()
+function loadData(element){
+    //put condition if element exists, filter, if not return back all the games
+    var filterSelection = element.options[element.selectedIndex].text
+    console.log(filterSelection)
     var xhr = new XMLHttpRequest();
 
     xhr.open('GET', 'gameData.json', true);
@@ -48,20 +50,20 @@ function loadData(){
 // loadData()
 
 //create an IIFE to grab the divison, conference, and team select options
-(function(){
-    var divisionsArr = ["AFC East", "AFC West", "AFC North", "AFC South", "NFC East", "NFC West", "NFC North", "NFC South"];
-    var division = document.getElementById("division"),
-    df = document.createDocumentFragment();
+// (function(){
+//     var divisionsArr = ["AFC East", "AFC West", "AFC North", "AFC South", "NFC East", "NFC West", "NFC North", "NFC South"];
+//     var division = document.getElementById("division"),
+//     df = document.createDocumentFragment();
 
-    //loop through the divisions
-    for (let i = 0; i < divisionsArr.length; i++){
-        var divisionOption = document.createElement('option');
-        divisionOption.value = i;
-        divisionOption.appendChild(document.createTextNode(divisionsArr[i]));
-        df.appendChild(divisionOption);
-    }
-    division.appendChild(df);
-}());
+//     //loop through the divisions
+//     for (let i = 0; i < divisionsArr.length; i++){
+//         var divisionOption = document.createElement('option');
+//         divisionOption.value = i;
+//         divisionOption.appendChild(document.createTextNode(divisionsArr[i]));
+//         df.appendChild(divisionOption);
+//     }
+//     division.appendChild(df);
+// }());
 
 (function(){
     var conferenceArr = ["AFC", "NFC"];
