@@ -1,7 +1,7 @@
 function loadData(element){
     //put condition if element exists, filter, if not return back all the games
-    var filterSelection = element.options[element.selectedIndex].text
-    console.log(filterSelection)
+    // var filterSelection = element.options[element.selectedIndex].text
+    console.log(element)
     var xhr = new XMLHttpRequest();
 
     xhr.open('GET', 'gameData.json', true);
