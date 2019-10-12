@@ -19,8 +19,8 @@ function loadData(elementValue){
 
                     //make a helper function to feed into filter
                     //determine if it is a division, conference or team param
-                    //like this https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-                    function isFilterParamDivision(param){
+
+                    function isDivision(param){
                       let divisionsArray =["AFC East", "AFC West", "AFC North", "AFC South", "NFC East", "NFC West", "NFC North", "NFC South"];
 
                       if(divisionsArray.includes(param)){
@@ -31,9 +31,9 @@ function loadData(elementValue){
                       }
                     };
 
-                    isFilterParamDivision(filterParam);
+                    isDivision(filterParam);
 
-                    function isFilterParamConference(param){
+                    function isConference(param){
                         let conferenceArray =["NFC", "AFC"];
   
                         if(conferenceArray.includes(param)){
@@ -44,9 +44,9 @@ function loadData(elementValue){
                         }
                       };
   
-                      isFilterParamConference(filterParam);
+                      isConference(filterParam);
 
-                      function isFilterParamTeam(param){
+                      function isTeam(param){
                         let teamArray = [
                         "Arizona Cardinals", 
                         "Atlanta Falcons", 
@@ -90,9 +90,20 @@ function loadData(elementValue){
                         }
                       };
   
-                      isFilterParamTeam(filterParam);
+                      isTeam(filterParam);
 
-                      
+            
+                function determineFilterParam(param){
+                    if(isDivision(param)){
+                        console.log("it's a division!");
+                    } else if(isConference(param)){
+                        console.log("it's a conference!");
+                    } else if(isTeam(param)){
+                        console.log("it's a team!")
+                    };
+                };
+
+                determineFilterParam(filterParam);
 
                     //use filterParam from dropdown
                     let filteredRes = res.filter(function(game){
