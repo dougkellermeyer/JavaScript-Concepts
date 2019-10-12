@@ -12,11 +12,15 @@ function loadData(elementValue){
                 document.getElementById('outputData').innerHTML = 
                 // loop or map filterRes to output filterBy result
               `<p>${this.responseText}</p>`;
+              //see else statement below
             } else{
                 function filterBy(response, filterParam){
                     console.log(response, filterParam);
                     //use filterParam from dropdown
                     let filteredRes = res.filter(function(game){
+                        //TODO replace homeTeamDivision with gameParam
+                    let gameParam = [game.homeTeamDivision, game.awayTeamDivision, game.homeTeam, game.awayTeam]
+                    
                         return game.homeTeamDivision === filterParam;
                     });
                     document.getElementById('outputData').innerHTML =
@@ -24,7 +28,25 @@ function loadData(elementValue){
                 };
                 //invoke our filterBy function, giving it the GET response and elementValue
                 filterBy(res, elementValue);
-            }       
+            };
+
+            // else{
+            //     function filterBy(response, filterParam){
+            //         console.log(response, filterParam);
+            //         //use filterParam from dropdown
+            //         let filteredRes = res.filter(function(game){
+            //             //TODO replace homeTeamDivision with gameParam
+            //         let gameParam = [game.homeTeamDivision, game.awayTeamDivision, game.homeTeam, game.awayTeam];
+            //         //TODO put a for loop here to loop through the game param
+            //         return gameParam === filterParam;
+
+            //         });
+            //         document.getElementById('outputData').innerHTML =
+            //         `<p>${JSON.stringify(filteredRes)}</p>`;
+            //     };
+            //     //invoke our filterBy function, giving it the GET response and elementValue
+            //     filterBy(res, elementValue);
+            // }  
         };
 
         xhr.onerror = function(){
