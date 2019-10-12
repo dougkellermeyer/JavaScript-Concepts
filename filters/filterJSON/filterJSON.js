@@ -16,13 +16,45 @@ function loadData(elementValue){
             } else{
                 function filterBy(response, filterParam){
                     console.log(response, filterParam);
+
+                    //make a helper function to feed into filter
+                    //determine if it is a division, conference or team param
+                    //like this https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+                    function isFilterParamDivision(param){
+                      let divisionsArray =["AFC East", "AFC West", "AFC North", "AFC South", "NFC East", "NFC West", "NFC North", "NFC South"];
+
+                      if(divisionsArray.includes(param)){
+                          return true;
+                      }
+                      else{
+                          return false;
+                      }
+                    };
+
+                    isFilterParamDivision(filterParam);
+
+                    function isFilterParamConference(param){
+                        let conferenceArray =["NFC", "AFC"];
+  
+                        if(conferenceArray.includes(param)){
+                            return true;
+                        }
+                        else{
+                            return false;
+                        }
+                      };
+  
+                      isFilterParamConference(filterParam);
+
+                      
+
                     //use filterParam from dropdown
                     let filteredRes = res.filter(function(game){
                         //TODO replace homeTeamDivision with gameParam
-                    let gameParam = [game.homeTeamDivision, game.awayTeamDivision, game.homeTeam, game.awayTeam]
-                    
-                        return game.homeTeamDivision === filterParam;
+                        
+                            return game.homeTeamDivision === filterParam;
                     });
+
                     document.getElementById('outputData').innerHTML =
                     `<p>${JSON.stringify(filteredRes)}</p>`;
                 };
