@@ -22,3 +22,6 @@ const mackenzie = new Person('Mackenzie', '11-3-1993')
 console.log(doug.calculateAge())
 console.log(mackenzie.calculateAge())
 
+const scott = new Person('Scott', '5-03-1962');
+console.log(scott.calculateAge());
+

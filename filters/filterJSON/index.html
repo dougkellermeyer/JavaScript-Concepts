@@ -9,20 +9,18 @@
 <body>
     <h1>Game Filters</h1>
     <div class="container">
-            <button id="getDataButton" onclick="loadData()">Get Data</button>
-            <div id="outputData"></div>
             <div class="dropdown">
-            <select name="division" id="division" onclick="loadData(value)"> 
-                <option value="" disabled selected>Division</option>
-                <option value="AFC East">AFC East</option>
-                <option value="AFC West">AFC West</option>
-                <option value="AFC North">AFC North</option>
-                <option value="AFC South">AFC South</option>
-                <option value="NFC East">NFC East</option>
-                <option value="NFC West">NFC West</option>
-                <option value="NFC North">NFC North</option>
-                <option value="NFC South">NFC South</option>
-            </select>
+                <select name="division" id="division" onclick="loadData(value)"> 
+                    <option value="" disabled selected>Division</option>
+                    <option value="AFC East">AFC East</option>
+                    <option value="AFC West">AFC West</option>
+                    <option value="AFC North">AFC North</option>
+                    <option value="AFC South">AFC South</option>
+                    <option value="NFC East">NFC East</option>
+                    <option value="NFC West">NFC West</option>
+                    <option value="NFC North">NFC North</option>
+                    <option value="NFC South">NFC South</option>
+                </select>
             </div>
 
             <div class="dropdown">
@@ -36,6 +34,8 @@
                     <option value="" disabled selected>Team</option>
                 </select>
             </div>
+            <div id="outputData"></div>
+
     </div>
     
 <script src="filterJSON.js"></script>
