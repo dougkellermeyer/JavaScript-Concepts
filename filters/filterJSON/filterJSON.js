@@ -90,25 +90,31 @@ function loadData(elementValue){
                         }
                       };
   
-                      isTeam(filterParam);
+                      isTeam(filterParam); 
 
-            
                 function determineFilterParam(param){
+                    let gameParam;
+
                     if(isDivision(param)){
-                        console.log("it's a division!");
+                        gameParam = param;
                     } else if(isConference(param)){
-                        console.log("it's a conference!");
+                        gameParam = param;
                     } else if(isTeam(param)){
-                        console.log("it's a team!")
+                        gameParam = param;
                     };
+
+                    return gameParam;
                 };
 
                 determineFilterParam(filterParam);
 
-                    //use filterParam from dropdown
-                    let filteredRes = res.filter(function(game){
-                        //TODO replace homeTeamDivision with gameParam
-                        
+                //want to check to see what games match the condition for filter
+                let gameByParam = res.filter(determineFilterParam);
+                console.log(gameByParam);   
+
+                 //use filterParam from dropdown
+                let filteredRes = res.filter(function(game){
+                //TODO replace homeTeamDivision with gameParam
                             return game.homeTeamDivision === filterParam;
                     });
 
