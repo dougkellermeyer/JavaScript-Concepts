@@ -4,7 +4,7 @@ function loadData(){
     //Create req object
     const req = new XMLHttpRequest();
     
-    //OPEN - specify the type of request we want to make 
+    //OPEN - specify t  he type of request we want to make 
 
     //Optional - used for spinners/loaders
     req.onprogress = function(){
