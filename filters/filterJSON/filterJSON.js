@@ -31,15 +31,16 @@ function loadData(element){
 
                 //add second loop for multiple key values
                 //check to see if the key value matches and return those matches
-                function findObjectByKey(array, key, value) {
-                    let matchArr = []
-                    for (let i = 0; i < array.length; i++) {
-                        //put a .includes option in the conditional for the conference param
-                        if (array[i][key[0]] === value || array[i][key[1]] === value || array[i][key[0]].includes(value)) {
-                            matchArr.push(array[i]);
-                        };
-                    }
-                    return matchArr;
+                function findObjectByKey(matches, key, value) {
+                    return matches.filter(function(match){
+                        //TODO, loop through the keys rather than 
+                        for(let i = 0; i < key.length; i ++){
+                             if(match[key[i]] === value|| match[key[i]].includes(value)){
+                                 return true
+                             }
+                        }
+                    });
+
                 };
 
                 let matches = findObjectByKey(res, gameParams, filterParam);
@@ -51,36 +52,7 @@ function loadData(element){
                 };
                 //invoke our filterBy function, giving it the GET response and elementValue
                 filterBy(res, elementValue, filterFields);
-                //TODO pass in the key you want to filter as opposed to the value
             };
-
-            //old filter logic, from *
-            
-                 //use filterParam from dropdown
-                // let filteredRes = res.filter(function(game){
-                    //         return game.homeTeamDivision === filterParam || game.awayTeamDivision === filterParam;
-                    // });
-
-                    // document.getElementById('outputData').innerHTML =
-                    // `<p>${JSON.stringify(filteredRes)}</p>`;
-
-            // else{
-            //     function filterBy(response, filterParam){
-            //         console.log(response, filterParam);
-            //         //use filterParam from dropdown
-            //         let filteredRes = res.filter(function(game){
-            //             //TODO replace homeTeamDivision with gameParam
-            //         let gameParam = [game.homeTeamDivision, game.awayTeamDivision, game.homeTeam, game.awayTeam];
-            //         //TODO put a for loop here to loop through the game param
-            //         return gameParam === filterParam;
-
-            //         });
-            //         document.getElementById('outputData').innerHTML =
-            //         `<p>${JSON.stringify(filteredRes)}</p>`;
-            //     };
-            //     //invoke our filterBy function, giving it the GET response and elementValue
-            //     filterBy(res, elementValue);
-            // }  
         };
 
         xhr.onerror = function(){
