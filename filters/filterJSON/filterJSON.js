@@ -39,7 +39,6 @@ function loadData(elementValue, filterFields){
                              }
                         }
                     });
-
                 };
 
                 let matches = findObjectByKey(res, gameParams, filterParam);
