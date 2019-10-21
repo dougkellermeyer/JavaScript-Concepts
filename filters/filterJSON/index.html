@@ -10,7 +10,7 @@
     <h1>Game Filters</h1>
     <div class="container">
             <div class="dropdown">
-                <select name="division" id="division" onclick="loadData(value)"> 
+                <select data-filterBy="homeTeamDivision,awayTeamDivision" name="division" id="division" onclick="loadData(this)"> 
                     <option value="" disabled selected>Division</option>
                     <option value="AFC East">AFC East</option>
                     <option value="AFC West">AFC West</option>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="dropdown">
-                <select name="conference" id="conference" onclick="loadData(value)"> 
+                <select data-filterBy="homeTeamDivision,awayTeamDivision" name="conference" id="conference" onclick="loadData(this)"> 
                     <option value="" onclick="" disabled selected>Conference</option>
                     <option value="NFC">NFC</option>
                     <option value="AFC">AFC</option>
@@ -32,7 +32,7 @@
             </div>
 
             <div class="dropdown">
-                <select name="team" id="team" onclick="loadData(value)"> 
+                <select data-filterBy="homeTeam,awayTeam" name="team" id="team" onclick="loadData(this)"> 
                     <option value="" disabled selected>Team</option>
                     <option value="Arizona Cardinals">Arizona Cardinals</option>
                     <option value="Atlanta Falcons">Atlanta Falcons</option>

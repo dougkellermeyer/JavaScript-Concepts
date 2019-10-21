@@ -1,4 +1,15 @@
-function loadData(elementValue){
+/**
+ * 
+ * @param {HTMLElement} element 
+ */
+function loadData(element){
+        //conditional null check on element
+        if(element){
+            var elementValue = element.value;
+            var filterFields = element.getAttribute("data-filterBy").split(",");
+        } else {
+            var elementValue = null;
+        }
     
         var xhr = new XMLHttpRequest();
 
@@ -6,7 +17,8 @@ function loadData(elementValue){
 
         xhr.onload = function(){
             let res = JSON.parse(this.responseText); 
-            
+            let divisionsArray =["AFC East", "AFC West", "AFC North", "AFC South", "NFC East", "NFC West", "NFC North", "NFC South"];
+
             if(!elementValue){
                 //put data on the page
                 document.getElementById('outputData').innerHTML = 
@@ -14,98 +26,8 @@ function loadData(elementValue){
               `<p>${this.responseText}</p>`;
               //see else statement below
             } else{
-                function filterBy(response, filterParam){
-                    //make a helper function to feed into filter
-                    //determine if it is a division, conference or team param
+                function filterBy(response, filterParam, gameParams){
 
-                    function isDivision(param){
-                      let divisionsArray =["AFC East", "AFC West", "AFC North", "AFC South", "NFC East", "NFC West", "NFC North", "NFC South"];
-
-                      if(divisionsArray.includes(param)){
-                          return true;
-                      }
-                      else{
-                          return false;
-                      }
-                    };
-
-                    isDivision(filterParam);
-
-                    function isConference(param){
-                        let conferenceArray =["NFC", "AFC"];
-  
-                        if(conferenceArray.includes(param)){
-                            return true;
-                        }
-                        else{
-                            return false;
-                        }
-                      };
-  
-                      isConference(filterParam);
-
-                      function isTeam(param){
-                        let teamArray = [
-                        "Arizona Cardinals", 
-                        "Atlanta Falcons", 
-                        "Baltimore Ravens", 
-                        "Buffalo Bills", 
-                        "Carolina Panthers", 
-                        "Chicago Bears", 
-                        "Cincinnati Bengals", 
-                        "Cleveland Browns", 
-                        "Dallas Cowboys", 
-                        "Denver Broncos", 
-                        "Detroit Lions", 
-                        "Green Bay Packers", 
-                        "Houston Texans", 
-                        "Indianapolis Colts", 
-                        "Jacksonville Jaguars", 
-                        "Kansas City Chiefs", 
-                        "Los Angeles Rams", 
-                        "Miami Dolphins", 
-                        "Minnesota Vikings", 
-                        "New England Patriots", 
-                        "New Orleans Saints", 
-                        "New York Giants", 
-                        "New York Jets", 
-                        "Oakland Raiders", 
-                        "Philadelphia Eagles", 
-                        "Pittsburgh Steelers", 
-                        "San Diego Chargers", 
-                        "San Francisco 49ers", 
-                        "Seattle Seahawks", 
-                        "Tampa Bay Buccaneers", 
-                        "Tennessee Titans", 
-                        "Washington Redskins"
-                    ];
-  
-                        if(teamArray.includes(param)){
-                            return true;
-                        }
-                        else{
-                            return false;
-                        }
-                      };
-  
-                      isTeam(filterParam); 
-
-                function determineFilterParam(param){
-                    let gameParam = [];
-                    //push the keys for the mathing inputs
-                    if(isDivision(param)){
-                        gameParam.push("homeTeamDivision", "awayTeamDivision");
-                    } else if(isConference(param)){
-                        //push the divisions because conference would be another parameter for each team. Just use gameParam.include("NFC/AFC") 
-                        gameParam.push("homeTeamDivision", "awayTeamDivision");
-                    } else if(isTeam(param)){
-                        gameParam.push("homeTeam", "awayTeam");
-                    };
-
-                    return gameParam;
-                };
-
-                let gameParams = determineFilterParam(filterParam);
 
                 //add second loop for multiple key values
                 //check to see if the key value matches and return those matches
@@ -128,7 +50,8 @@ function loadData(elementValue){
 
                 };
                 //invoke our filterBy function, giving it the GET response and elementValue
-                filterBy(res, elementValue);
+                filterBy(res, elementValue, filterFields);
+                //TODO pass in the key you want to filter as opposed to the value
             };
 
             //old filter logic, from *
