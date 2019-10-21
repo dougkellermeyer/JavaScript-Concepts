@@ -2,14 +2,14 @@
  * 
  * @param {HTMLElement} element 
  */
-function loadData(element){
+function loadData(elementValue, filterFields){
         //conditional null check on element
-        if(element){
-            var elementValue = element.value;
-            var filterFields = element.getAttribute("data-filterBy").split(",");
-        } else {
-            var elementValue = null;
-        }
+        // if(element){
+        //     var elementValue = element.value;
+        //     var filterFields = element.getAttribute("data-filterBy").split(",");
+        // } else {
+        //     var elementValue = null;
+        // }
     
         var xhr = new XMLHttpRequest();
 
@@ -17,7 +17,6 @@ function loadData(element){
 
         xhr.onload = function(){
             let res = JSON.parse(this.responseText); 
-            let divisionsArray =["AFC East", "AFC West", "AFC North", "AFC South", "NFC East", "NFC West", "NFC North", "NFC South"];
 
             if(!elementValue){
                 //put data on the page
@@ -33,7 +32,7 @@ function loadData(element){
                 //check to see if the key value matches and return those matches
                 function findObjectByKey(matches, key, value) {
                     return matches.filter(function(match){
-                        //TODO, loop through the keys rather than 
+                        //TODO, find first match rather than looping
                         for(let i = 0; i < key.length; i ++){
                              if(match[key[i]] === value|| match[key[i]].includes(value)){
                                  return true
